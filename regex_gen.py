@@ -8,7 +8,7 @@ regex_set0 = set()
 regex_set1 = set()
 regex_set2 = set()
 regex_set3 = set()
-set_size = 10000
+set_size = 55000
 
 
 while len(regex_set0) < set_size or len(regex_set1) < set_size or len(regex_set2) < set_size \
@@ -30,6 +30,8 @@ while len(regex_set0) < set_size or len(regex_set1) < set_size or len(regex_set2
         regex_set2.add(regex_instance)
     elif star_cnt == 3 and len(regex_set3) < set_size:
         regex_set3.add(regex_instance)
+    print(len(regex_set0), len(regex_set1), len(regex_set2), len(regex_set3))
+
 
 file_write('data/alphabet4/regex/star0.txt', regex_set0)
 file_write('data/alphabet4/regex/star1.txt', regex_set1)

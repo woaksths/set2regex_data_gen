@@ -39,9 +39,6 @@ def main():
                     diff = 0
 
                 seq2seq_data, set2regex_data = fill_none_token(pairs_data, diff, maximum_set)
-                print('set_dir {}, maximum_set{}'.format(set_dir, maximum_set))
-                print(len(seq2seq_data[-1].split('<sep>'))+1)
-                print(len(set2regex_data[-1].split('\t')))
                 test_ratio = int(len(seq2seq_data) * 0.1)
                 seq2seq_test = seq2seq_data[0:test_ratio]
                 seq2seq_valid = seq2seq_data[test_ratio:2*test_ratio]
