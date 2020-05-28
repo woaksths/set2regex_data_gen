@@ -7,6 +7,9 @@ def get_instance_list(regex, set_num):
     while len(instance_set) < set_num:
         regex = regex.replace('*', '{0,4}')
         string = rstr.xeger(regex)
+        if string.strip() == '':
+            print('empty string can not be added into dataset')
+            continue
         if early_stop_cnt == 30:
             break
 
