@@ -15,18 +15,16 @@ def main():
         for star_idx in star_num:
             star_file = '/star{}.txt'.format(star_idx)
             file_path = path + star_file
+
             regex_set = get_dataset(file_path)
             pairs_data = []
-
             for regex in regex_set:
                 pairs = []
                 strings = get_instance_list(regex, set_num)
                 strings = process_source(strings)
-
                 if set_num - len(strings) > 0:
                     for _ in range(set_num - len(strings)):
                         strings.append('none')
-
                 pairs.extend(strings)
                 regex = process_target(regex)
                 pairs.append(regex)
@@ -36,7 +34,7 @@ def main():
             for maximum_set in max_set:
                 diff = maximum_set - set_num
                 if set_num > maximum_set:
-                    diff = 0
+                    continue
 
                 seq2seq_data, set2regex_data = fill_none_token(pairs_data, diff, maximum_set)
                 test_ratio = int(len(seq2seq_data) * 0.1)
@@ -63,5 +61,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
